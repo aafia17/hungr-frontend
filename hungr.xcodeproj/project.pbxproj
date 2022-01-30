@@ -17,6 +17,7 @@
 		1C8CE4FC27A61F9900997527 /* IngredientSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8CE4FB27A61F9800997527 /* IngredientSelectionViewController.swift */; };
 		1C8CE4FF27A636EB00997527 /* RecipeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8CE4FE27A636EA00997527 /* RecipeSelectionViewController.swift */; };
 		1CD72EF627A6CE2B00FAD1F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD72EF527A6CE2A00FAD1F4 /* ContentView.swift */; };
+		4C5D5A9727A6E3A20026AFE7 /* hungrgreenlogo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5D5A9627A6E3A20026AFE7 /* hungrgreenlogo_small.png */; };
 		DF391D15ED88BCE6E0CD5212 /* Pods_hungr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E729ED9881D6983B028434 /* Pods_hungr.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		1CD72EF527A6CE2A00FAD1F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2B25DA0BEEF19D53E3F8BF3F /* Pods-hungr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hungr.release.xcconfig"; path = "Target Support Files/Pods-hungr/Pods-hungr.release.xcconfig"; sourceTree = "<group>"; };
 		35E729ED9881D6983B028434 /* Pods_hungr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hungr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C5D5A9627A6E3A20026AFE7 /* hungrgreenlogo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hungrgreenlogo_small.png; sourceTree = "<group>"; };
 		5B3D5B575BF561050900079C /* Pods-hungr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hungr.debug.xcconfig"; path = "Target Support Files/Pods-hungr/Pods-hungr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 		1C8CE4CB27A5CFAA00997527 /* hungr */ = {
 			isa = PBXGroup;
 			children = (
+				4C5D5A9627A6E3A20026AFE7 /* hungrgreenlogo_small.png */,
 				1C8CE4CC27A5CFAA00997527 /* AppDelegate.swift */,
 				1C8CE4CE27A5CFAA00997527 /* SceneDelegate.swift */,
 				1C8CE4D027A5CFAA00997527 /* ViewController.swift */,
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C8CE4DC27A5CFAD00997527 /* LaunchScreen.storyboard in Resources */,
+				4C5D5A9727A6E3A20026AFE7 /* hungrgreenlogo_small.png in Resources */,
 				1C8CE4D927A5CFAD00997527 /* Assets.xcassets in Resources */,
 				1C8CE4D427A5CFAA00997527 /* Main.storyboard in Resources */,
 			);
