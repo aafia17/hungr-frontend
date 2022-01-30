@@ -24,35 +24,35 @@ class RecipeSelectionViewController: UIViewController {
     }
 
     struct Rating: Encodable {
-        let name: String;
-        let rating: Double;
+        var name: String;
+        var rating: Double;
     }
 
     struct RequestBody: Encodable {
-        let num_predictions: Int;
-        let ratings: [Rating];
+        var num_predictions: Int;
+        var ratings: [Rating];
     }
 
     struct Ingredient: Decodable {
-        let name: String;
-        let price: Double;
-        let quantity: String;
-        let unit: String;
+        var name: String;
+        var price: Double?;
+        var quantity: String;
+        var unit: String;
     }
 
     struct Recipe: Decodable {
-        let description: String;
-        let img: String;
-        let ingredients: [Ingredient];
-        let instructions: [String];
-        let name: String;
-        let source: String;
-        let time: String;
-        let score: Double?
+        var description: String;
+        var img: String;
+        var ingredients: [Ingredient];
+        var instructions: [String];
+        var name: String;
+        var source: String;
+        var time: String;
+        var score: Double?
     }
 
     struct ResponseBody: Decodable {
-        let recipes: [Recipe];
+        var recipes: [Recipe];
     }
     
     var imageString: String = "https://www.budgetbytes.com/wp-content/uploads/2018/09/Italian-Orzo-Salad-plate.jpg"
@@ -65,6 +65,19 @@ class RecipeSelectionViewController: UIViewController {
         json2(callback: { responseBody in
             self.RecipeName.text = responseBody.recipes[0].name
         })
+        json2(callback:{ responseBody in
+            self.TimeToMake.text = responseBody.recipes[0].time
+        })
+        // hello me?
+        json2(callback: { responseBody in
+            var c = 0.0;
+            for i in responseBody.recipes[0].ingredients{
+                c += i.price ??  0
+            }
+            self.RecipeCost.text = String(format: "%f.1", c)
+        })
+        
+        
     }
     
     @IBAction func likeRecipeAction(_ sender: Any) {
@@ -86,9 +99,9 @@ class RecipeSelectionViewController: UIViewController {
         print("here")
         AF.request("http://hungr.garrettgu.com/predict", method: .post, parameters: body, encoder: JSONParameterEncoder.default)
             .response { response in
-                print(response.data)
+                //print(response.data)
                 let resp = try! JSONDecoder().decode(ResponseBody.self, from: response.data!)
-                print(resp.recipes)
+                //print(resp.recipes)
                 callback(resp)
                 
             }
