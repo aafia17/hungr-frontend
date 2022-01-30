@@ -48,6 +48,7 @@ class RecipeSelectionViewController: UIViewController {
         let name: String;
         let source: String;
         let time: String;
+        let score: Double?
     }
 
     struct ResponseBody: Decodable {
@@ -61,7 +62,9 @@ class RecipeSelectionViewController: UIViewController {
         let url = URL(string: imageString)
         let data = try? Data(contentsOf: url!)
         RecipeImage.image = UIImage(data: data!)
-        json2()
+        json2(callback: { responseBody in
+            self.RecipeName.text = responseBody.recipes[0].name
+        })
     }
     
     @IBAction func likeRecipeAction(_ sender: Any) {
@@ -76,15 +79,18 @@ class RecipeSelectionViewController: UIViewController {
         
     }
     
-    func json2() ->String{
+    func json2(callback: @escaping((ResponseBody) -> ())) {
         let body = RequestBody(
             num_predictions: 10, ratings: []
         )
+        print("here")
         AF.request("http://hungr.garrettgu.com/predict", method: .post, parameters: body, encoder: JSONParameterEncoder.default)
             .response { response in
+                print(response.data)
                 let resp = try! JSONDecoder().decode(ResponseBody.self, from: response.data!)
                 print(resp.recipes)
+                callback(resp)
+                
             }
-        return "k"
     }
 }
